@@ -1,0 +1,538 @@
+{
+	"info": {
+		"_postman_id": "50039704-4652-4db8-81d0-e8874ad4bba0",
+		"name": "DREAMBROKER",
+		"description": "Analyze Text API endpoint!",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Success Case",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"Hello 2 times\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8585/api/analyze/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8585",
+					"path": [
+						"api",
+						"analyze",
+						""
+					]
+				},
+				"description": "In success case it gives 200 (OK)"
+			},
+			"response": [
+				{
+					"name": "Success Case",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\": \"Hello 2 times\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8585/api/analyze/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"analyze",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "148",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 21 Dec 2018 12:21:24 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"94-lvucAdTJ3tY8O9MugS2Rcy8nm8w\"",
+							"name": "ETag",
+							"description": "An identifier for a specific version of a resource, often a message digest"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"body": "{\"textLength\":{\"withSpaces\":13,\"withoutSpaces\":11},\"countWord\":3,\"characterCount\":[{\"e\":2},{\"h\":1},{\"i\":1},{\"l\":2},{\"m\":1},{\"o\":1},{\"s\":1},{\"t\":1}]}"
+				}
+			]
+		},
+		{
+			"name": "Failure Case(textmissing)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8585/api/analyze/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8585",
+					"path": [
+						"api",
+						"analyze",
+						""
+					]
+				},
+				"description": "In case of empty text it returns error 400 (JOI validation)"
+			},
+			"response": [
+				{
+					"name": "Failure Case(textmissing)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\": \"\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8585/api/analyze/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"analyze",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "33",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 21 Dec 2018 12:15:57 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"21-8cQGnd8qG7vlHLq05N9MS7SZ9GI\"",
+							"name": "ETag",
+							"description": "An identifier for a specific version of a resource, often a message digest"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"body": "\"text\" is not allowed to be empty"
+				}
+			]
+		},
+		{
+			"name": "Failure Case(Short)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"ab\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8585/api/analyze/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8585",
+					"path": [
+						"api",
+						"analyze",
+						""
+					]
+				},
+				"description": "In case of shorter text than 3 character it returns error 400 (JOI validation)"
+			},
+			"response": [
+				{
+					"name": "Failure Case(Short)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\": \"ab\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8585/api/analyze/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"analyze",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "48",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 21 Dec 2018 12:19:24 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"30-VSVkFzFk43zTrkA7uRwWl65mdas\"",
+							"name": "ETag",
+							"description": "An identifier for a specific version of a resource, often a message digest"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"body": "\"text\" length must be at least 3 characters long"
+				}
+			]
+		},
+		{
+			"name": "Failure Case(Long)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3 ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8585/api/analyze/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8585",
+					"path": [
+						"api",
+						"analyze",
+						""
+					]
+				},
+				"description": "In case of Longer text than 500 character it returns error 400 (JOI validation)"
+			},
+			"response": [
+				{
+					"name": "Failure Case(Long)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\": \"ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3 ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3ab hi how are you 12 3\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8585/api/analyze/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"analyze",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 21 Dec 2018 12:20:55 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3f-mWHsuIC3kq1yWqh8+dSkBF5aA+8\"",
+							"name": "ETag",
+							"description": "An identifier for a specific version of a resource, often a message digest"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"body": "\"text\" length must be less than or equal to 500 characters long"
+				}
+			]
+		},
+		{
+			"name": "Success Case",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"hi hi hi how are you 23 232 23 I am fine\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8585/api/analyze/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8585",
+					"path": [
+						"api",
+						"analyze",
+						""
+					]
+				},
+				"description": "In case of longer text it returns 200 Ok by analyzing text."
+			},
+			"response": [
+				{
+					"name": "Success Case",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\": \"hi hi hi how are you 23 232 23 I am fine\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8585/api/analyze/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8585",
+							"path": [
+								"api",
+								"analyze",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "181",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 21 Dec 2018 12:18:17 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b5-vBIiFOFzC1tCfYE2zpSiAK+vRo0\"",
+							"name": "ETag",
+							"description": "An identifier for a specific version of a resource, often a message digest"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"body": "{\"textLength\":{\"withSpaces\":40,\"withoutSpaces\":29},\"countWord\":12,\"characterCount\":[{\"a\":2},{\"e\":2},{\"f\":1},{\"h\":4},{\"i\":5},{\"m\":1},{\"n\":1},{\"o\":2},{\"r\":1},{\"u\":1},{\"w\":1},{\"y\":1}]}"
+				}
+			]
+		}
+	]
+}
