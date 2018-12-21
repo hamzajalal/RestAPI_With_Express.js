@@ -26,8 +26,8 @@ const characterList = (text) => {
 }
 
 app.post('/api/analyze', (req, res) => {
-    const { error } = validateCharacterListItem(req.body); //result.error
-    if (error) return res.status(400).send(error.details[0].message);
+    // const { error } = validateCharacterListItem(req.body); //result.error
+    // if (error) return res.status(400).send(error.details[0].message);
 
     const { text } = req.body;
 
@@ -53,14 +53,14 @@ app.post('/api/analyze', (req, res) => {
 
 
 // Joi validation was not needed for this task but I have just added it for validation purpose of my own practice.
-function validateCharacterListItem(text) {
-    const schema = {
-        text: Joi.string().max(500).required()
-    };
+// function validateCharacterListItem(text) {
+//     const schema = {
+//         text: Joi.string().max(500).required()
+//     };
 
-    return Joi.validate(text, schema);
-    //console.log(result);
-}
+//     return Joi.validate(text, schema);
+//     //console.log(result);
+// }
 
 
 const port = process.env.PORT || 3000; //export PORT=8585
