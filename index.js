@@ -55,7 +55,7 @@ app.post('/api/analyze', (req, res) => {
 // Joi validation was not needed for this task but I have just added it for validation purpose of my own practice.
 function validateCharacterListItem(text) {
     const schema = {
-        text: Joi.string().min(3).max(500).required()
+        text: Joi.string().max(500).required()
     };
 
     return Joi.validate(text, schema);
